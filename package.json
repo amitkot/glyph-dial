@@ -1,0 +1,78 @@
+{
+  "name": "glyph-dial",
+  "author": "Amit Kotler + OpenAI Codex",
+  "version": "1.0.0",
+  "keywords": ["pebble-app", "watchface"],
+  "private": true,
+  "dependencies": {},
+  "pebble": {
+    "displayName": "Glyph Dial",
+    "uuid": "9b504a4a-5260-4304-a811-0c3125fe7a0f",
+    "sdkVersion": "3",
+    "enableMultiJS": true,
+    "targetPlatforms": [
+      "emery",
+      "gabbro"
+    ],
+    "watchapp": {
+      "watchface": true
+    },
+    "messageKeys": [
+      "PACK",
+      "THEME",
+      "SHOW_DATE"
+    ],
+    "resources": {
+      "media": [
+        { "type": "png", "name": "IMG_HEBREW_EMERY_01", "file": "images/hebrew/emery/01_aleph.png" },
+        { "type": "png", "name": "IMG_HEBREW_EMERY_02", "file": "images/hebrew/emery/02_bet.png" },
+        { "type": "png", "name": "IMG_HEBREW_EMERY_03", "file": "images/hebrew/emery/03_gimel.png" },
+        { "type": "png", "name": "IMG_HEBREW_EMERY_04", "file": "images/hebrew/emery/04_dalet.png" },
+        { "type": "png", "name": "IMG_HEBREW_EMERY_05", "file": "images/hebrew/emery/05_he.png" },
+        { "type": "png", "name": "IMG_HEBREW_EMERY_06", "file": "images/hebrew/emery/06_vav.png" },
+        { "type": "png", "name": "IMG_HEBREW_EMERY_07", "file": "images/hebrew/emery/07_zayin.png" },
+        { "type": "png", "name": "IMG_HEBREW_EMERY_08", "file": "images/hebrew/emery/08_het.png" },
+        { "type": "png", "name": "IMG_HEBREW_EMERY_09", "file": "images/hebrew/emery/09_tet.png" },
+        { "type": "png", "name": "IMG_HEBREW_EMERY_10", "file": "images/hebrew/emery/10_yod.png" },
+        { "type": "png", "name": "IMG_HEBREW_EMERY_11", "file": "images/hebrew/emery/11_yod_aleph.png" },
+        { "type": "png", "name": "IMG_HEBREW_EMERY_12", "file": "images/hebrew/emery/12_yod_bet.png" },
+        { "type": "png", "name": "IMG_HEBREW_GABBRO_01", "file": "images/hebrew/gabbro/01_aleph.png" },
+        { "type": "png", "name": "IMG_HEBREW_GABBRO_02", "file": "images/hebrew/gabbro/02_bet.png" },
+        { "type": "png", "name": "IMG_HEBREW_GABBRO_03", "file": "images/hebrew/gabbro/03_gimel.png" },
+        { "type": "png", "name": "IMG_HEBREW_GABBRO_04", "file": "images/hebrew/gabbro/04_dalet.png" },
+        { "type": "png", "name": "IMG_HEBREW_GABBRO_05", "file": "images/hebrew/gabbro/05_he.png" },
+        { "type": "png", "name": "IMG_HEBREW_GABBRO_06", "file": "images/hebrew/gabbro/06_vav.png" },
+        { "type": "png", "name": "IMG_HEBREW_GABBRO_07", "file": "images/hebrew/gabbro/07_zayin.png" },
+        { "type": "png", "name": "IMG_HEBREW_GABBRO_08", "file": "images/hebrew/gabbro/08_het.png" },
+        { "type": "png", "name": "IMG_HEBREW_GABBRO_09", "file": "images/hebrew/gabbro/09_tet.png" },
+        { "type": "png", "name": "IMG_HEBREW_GABBRO_10", "file": "images/hebrew/gabbro/10_yod.png" },
+        { "type": "png", "name": "IMG_HEBREW_GABBRO_11", "file": "images/hebrew/gabbro/11_yod_aleph.png" },
+        { "type": "png", "name": "IMG_HEBREW_GABBRO_12", "file": "images/hebrew/gabbro/12_yod_bet.png" },
+        { "type": "png", "name": "IMG_ARABIC_INDIC_EMERY_01", "file": "images/arabic_indic/emery/01_one.png" },
+        { "type": "png", "name": "IMG_ARABIC_INDIC_EMERY_02", "file": "images/arabic_indic/emery/02_two.png" },
+        { "type": "png", "name": "IMG_ARABIC_INDIC_EMERY_03", "file": "images/arabic_indic/emery/03_three.png" },
+        { "type": "png", "name": "IMG_ARABIC_INDIC_EMERY_04", "file": "images/arabic_indic/emery/04_four.png" },
+        { "type": "png", "name": "IMG_ARABIC_INDIC_EMERY_05", "file": "images/arabic_indic/emery/05_five.png" },
+        { "type": "png", "name": "IMG_ARABIC_INDIC_EMERY_06", "file": "images/arabic_indic/emery/06_six.png" },
+        { "type": "png", "name": "IMG_ARABIC_INDIC_EMERY_07", "file": "images/arabic_indic/emery/07_seven.png" },
+        { "type": "png", "name": "IMG_ARABIC_INDIC_EMERY_08", "file": "images/arabic_indic/emery/08_eight.png" },
+        { "type": "png", "name": "IMG_ARABIC_INDIC_EMERY_09", "file": "images/arabic_indic/emery/09_nine.png" },
+        { "type": "png", "name": "IMG_ARABIC_INDIC_EMERY_10", "file": "images/arabic_indic/emery/10_ten.png" },
+        { "type": "png", "name": "IMG_ARABIC_INDIC_EMERY_11", "file": "images/arabic_indic/emery/11_eleven.png" },
+        { "type": "png", "name": "IMG_ARABIC_INDIC_EMERY_12", "file": "images/arabic_indic/emery/12_twelve.png" },
+        { "type": "png", "name": "IMG_ARABIC_INDIC_GABBRO_01", "file": "images/arabic_indic/gabbro/01_one.png" },
+        { "type": "png", "name": "IMG_ARABIC_INDIC_GABBRO_02", "file": "images/arabic_indic/gabbro/02_two.png" },
+        { "type": "png", "name": "IMG_ARABIC_INDIC_GABBRO_03", "file": "images/arabic_indic/gabbro/03_three.png" },
+        { "type": "png", "name": "IMG_ARABIC_INDIC_GABBRO_04", "file": "images/arabic_indic/gabbro/04_four.png" },
+        { "type": "png", "name": "IMG_ARABIC_INDIC_GABBRO_05", "file": "images/arabic_indic/gabbro/05_five.png" },
+        { "type": "png", "name": "IMG_ARABIC_INDIC_GABBRO_06", "file": "images/arabic_indic/gabbro/06_six.png" },
+        { "type": "png", "name": "IMG_ARABIC_INDIC_GABBRO_07", "file": "images/arabic_indic/gabbro/07_seven.png" },
+        { "type": "png", "name": "IMG_ARABIC_INDIC_GABBRO_08", "file": "images/arabic_indic/gabbro/08_eight.png" },
+        { "type": "png", "name": "IMG_ARABIC_INDIC_GABBRO_09", "file": "images/arabic_indic/gabbro/09_nine.png" },
+        { "type": "png", "name": "IMG_ARABIC_INDIC_GABBRO_10", "file": "images/arabic_indic/gabbro/10_ten.png" },
+        { "type": "png", "name": "IMG_ARABIC_INDIC_GABBRO_11", "file": "images/arabic_indic/gabbro/11_eleven.png" },
+        { "type": "png", "name": "IMG_ARABIC_INDIC_GABBRO_12", "file": "images/arabic_indic/gabbro/12_twelve.png" }
+      ]
+    }
+  }
+}

@@ -1,0 +1,5 @@
+build/
+*.pbw
+.lock-waf_*
+ai_docs/*_test.png
+ai_docs/*_sheet.png
