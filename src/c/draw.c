@@ -61,11 +61,15 @@ static void draw_hand_polygon(GContext *ctx,
                               uint8_t neck_half_width,
                               uint8_t tail_length,
                               GColor fill_color) {
+  const int16_t shoulder_y = -(int16_t)(length / 2);
+  const int16_t tip_shoulder_y = -(int16_t)(length - 6);
   GPoint points[] = {
       GPoint(-base_half_width, tail_length),
-      GPoint(-neck_half_width, -length / 3),
+      GPoint(-neck_half_width, shoulder_y),
+      GPoint(-1, tip_shoulder_y),
       GPoint(0, -(int16_t)length),
-      GPoint(neck_half_width, -length / 3),
+      GPoint(1, tip_shoulder_y),
+      GPoint(neck_half_width, shoulder_y),
       GPoint(base_half_width, tail_length),
   };
 
@@ -89,12 +93,12 @@ static void draw_hands(GContext *ctx, const LayoutSpec *layout, const struct tm 
   const uint8_t hour_neck_half_width =
       layout->hour_hand_width > 3 ? (uint8_t)(layout->hour_hand_width - 2) : 2;
   const uint8_t minute_neck_half_width =
-      layout->minute_hand_width > 1 ? (uint8_t)(layout->minute_hand_width - 1) : 1;
+      layout->minute_hand_width > 1 ? (uint8_t)(layout->minute_hand_width) : 1;
 
   draw_hand_polygon(ctx, layout->center, hour_angle, layout->hour_hand_length, layout->hour_hand_width,
-                    hour_neck_half_width, 4, theme.foreground);
+                    hour_neck_half_width, 3, theme.foreground);
   draw_hand_polygon(ctx, layout->center, minute_angle, layout->minute_hand_length,
-                    layout->minute_hand_width, minute_neck_half_width, 5,
+                    layout->minute_hand_width, minute_neck_half_width, 4,
                     theme.foreground);
 
   graphics_context_set_fill_color(ctx, theme.foreground);
