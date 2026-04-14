@@ -6,8 +6,17 @@ HEBREW_EMERY_DIR="$ROOT_DIR/resources/images/hebrew/emery"
 HEBREW_GABBRO_DIR="$ROOT_DIR/resources/images/hebrew/gabbro"
 ARABIC_EMERY_DIR="$ROOT_DIR/resources/images/arabic_indic/emery"
 ARABIC_GABBRO_DIR="$ROOT_DIR/resources/images/arabic_indic/gabbro"
+HEBREW_FONT_FILE="$ROOT_DIR/assets/fonts/NotoSansHebrew.ttf"
+HEBREW_FONT_FACE="${HEBREW_FONT_FACE:-Noto-Sans-Hebrew-Bold}"
+HEBREW_11_LABEL="${HEBREW_11_LABEL:-אי}"
+HEBREW_12_LABEL="${HEBREW_12_LABEL:-בי}"
 
 mkdir -p "$HEBREW_EMERY_DIR" "$HEBREW_GABBRO_DIR" "$ARABIC_EMERY_DIR" "$ARABIC_GABBRO_DIR"
+
+if [[ ! -f "$HEBREW_FONT_FILE" ]]; then
+  echo "Missing Hebrew font: $HEBREW_FONT_FILE" >&2
+  exit 1
+fi
 
 hebrew_labels=(
   'א' 'ב' 'ג' 'ד' 'ה' 'ו' 'ז' 'ח' 'ט' 'י' 'אי' 'בי'
@@ -25,20 +34,52 @@ arabic_names=(
 )
 
 for i in "${!hebrew_labels[@]}"; do
-  magick -background black \
-    -fill white \
-    -font ".SF-Hebrew-Semibold" \
-    -gravity center \
-    -size 24x24 \
-    label:"${hebrew_labels[$i]}" \
-    "$HEBREW_EMERY_DIR/${hebrew_names[$i]}.png"
-  magick -background black \
-    -fill white \
-    -font ".SF-Hebrew-Semibold" \
-    -gravity center \
-    -size 30x30 \
-    label:"${hebrew_labels[$i]}" \
-    "$HEBREW_GABBRO_DIR/${hebrew_names[$i]}.png"
+  if [[ "$i" -eq 10 ]]; then
+    magick -background black \
+      -fill white \
+      -font "$HEBREW_FONT_FACE" \
+      -gravity center \
+      -size 32x32 \
+      label:"$HEBREW_11_LABEL" \
+      "$HEBREW_EMERY_DIR/${hebrew_names[$i]}.png"
+    magick -background black \
+      -fill white \
+      -font "$HEBREW_FONT_FACE" \
+      -gravity center \
+      -size 30x30 \
+      label:"$HEBREW_11_LABEL" \
+      "$HEBREW_GABBRO_DIR/${hebrew_names[$i]}.png"
+  elif [[ "$i" -eq 11 ]]; then
+    magick -background black \
+      -fill white \
+      -font "$HEBREW_FONT_FACE" \
+      -gravity center \
+      -size 32x32 \
+      label:"$HEBREW_12_LABEL" \
+      "$HEBREW_EMERY_DIR/${hebrew_names[$i]}.png"
+    magick -background black \
+      -fill white \
+      -font "$HEBREW_FONT_FACE" \
+      -gravity center \
+      -size 30x30 \
+      label:"$HEBREW_12_LABEL" \
+      "$HEBREW_GABBRO_DIR/${hebrew_names[$i]}.png"
+  else
+    magick -background black \
+      -fill white \
+      -font "$HEBREW_FONT_FACE" \
+      -gravity center \
+      -size 32x32 \
+      label:"${hebrew_labels[$i]}" \
+      "$HEBREW_EMERY_DIR/${hebrew_names[$i]}.png"
+    magick -background black \
+      -fill white \
+      -font "$HEBREW_FONT_FACE" \
+      -gravity center \
+      -size 30x30 \
+      label:"${hebrew_labels[$i]}" \
+      "$HEBREW_GABBRO_DIR/${hebrew_names[$i]}.png"
+  fi
 done
 
 for i in "${!arabic_labels[@]}"; do

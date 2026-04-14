@@ -18,6 +18,6 @@ void draw_face(Layer *layer,
                const struct tm *tick_time,
                const LayoutSpec *layout,
                const AppSettings *settings,
-               const MarkerSpec *marker_specs,
+               const MarkerPack *marker_pack,
                GBitmap *const *bitmaps,
                bool obstructed);

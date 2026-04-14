@@ -13,6 +13,7 @@ typedef struct {
   GBitmap *marker_bitmaps[12];
   ScriptPack loaded_pack;
   bool obstructed;
+  bool first_frame_logged;
 } AppState;
 
 static AppState s_app;
@@ -28,9 +29,13 @@ static void unload_marker_bitmaps(void) {
 
 static void load_marker_bitmaps(ScriptPack pack) {
   unload_marker_bitmaps();
-  const MarkerSpec *specs = markers_get_specs(pack);
-  for (int i = 0; i < 12; ++i) {
-    s_app.marker_bitmaps[i] = gbitmap_create_with_resource(specs[i].resource_id);
+  const MarkerPack *marker_pack = markers_get_pack(pack);
+  if (!markers_validate_pack(marker_pack)) {
+    APP_LOG(APP_LOG_LEVEL_ERROR, "Marker pack validation failed for %d", (int)pack);
+    return;
+  }
+  for (int i = 0; i < MARKER_COUNT; ++i) {
+    s_app.marker_bitmaps[i] = gbitmap_create_with_resource(marker_pack->markers[i].resource_id);
   }
   s_app.loaded_pack = pack;
 }
@@ -109,9 +114,14 @@ static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
 
 static void canvas_update_proc(Layer *layer, GContext *ctx) {
   const LayoutSpec *layout = layout_get(s_app.obstructed);
-  const MarkerSpec *specs = markers_get_specs(s_app.settings.pack);
-  draw_face(layer, ctx, &s_app.current_time, layout, &s_app.settings, specs, s_app.marker_bitmaps,
+  const MarkerPack *marker_pack = markers_get_pack(s_app.settings.pack);
+  draw_face(layer, ctx, &s_app.current_time, layout, &s_app.settings, marker_pack, s_app.marker_bitmaps,
             s_app.obstructed);
+
+  if (!s_app.first_frame_logged) {
+    APP_LOG(APP_LOG_LEVEL_INFO, "GLYPH_DIAL_FRAME_READY");
+    s_app.first_frame_logged = true;
+  }
 }
 
 static void window_load(Window *window) {
@@ -135,6 +145,7 @@ static void init(void) {
   settings_load(&s_app.settings);
   update_time();
   load_marker_bitmaps(s_app.settings.pack);
+  s_app.first_frame_logged = false;
 
   s_app.window = window_create();
   window_set_background_color(s_app.window, GColorBlack);
