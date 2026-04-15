@@ -63,12 +63,6 @@ var HTML = String.raw`
       <h1>Glyph Dial</h1>
       <p>Quiet analog typography for Pebble Time 2 and Round 2.</p>
 
-      <label for="pack">Script Pack</label>
-      <select id="pack">
-        <option value="0">Hebrew</option>
-        <option value="1">Arabic-Indic</option>
-      </select>
-
       <label for="theme">Theme</label>
       <select id="theme">
         <option value="0">Night</option>
@@ -85,13 +79,11 @@ var HTML = String.raw`
 
     <script>
       const key = "glyph-dial-settings";
-      const pack = document.getElementById("pack");
       const theme = document.getElementById("theme");
       const showDate = document.getElementById("showDate");
 
       try {
         const saved = JSON.parse(localStorage.getItem(key) || "{}");
-        if (saved.pack !== undefined) pack.value = String(saved.pack);
         if (saved.theme !== undefined) theme.value = String(saved.theme);
         if (saved.showDate !== undefined) showDate.checked = !!saved.showDate;
         else showDate.checked = true;
@@ -101,12 +93,10 @@ var HTML = String.raw`
 
       document.getElementById("save").addEventListener("click", function () {
         const payload = {
-          PACK: Number(pack.value),
           THEME: Number(theme.value),
           SHOW_DATE: showDate.checked ? 1 : 0
         };
         localStorage.setItem(key, JSON.stringify({
-          pack: payload.PACK,
           theme: payload.THEME,
           showDate: !!payload.SHOW_DATE
         }));

@@ -1,16 +1,18 @@
 #include "layout.h"
 
+#include "round3_config.h"
+
 #ifdef PBL_ROUND
 static const LayoutSpec s_layout_normal = {
-  .center = {130, 130},
-  .marker_radius = 93,
+  .center = {GLYPH_GABBRO_CENTER_X, GLYPH_GABBRO_CENTER_Y},
+  .marker_radius = GLYPH_GABBRO_MARKER_RADIUS,
   .marker_box = 28,
-  .hour_hand_length = 54,
-  .minute_hand_length = 80,
+  .hour_hand_length = GLYPH_GABBRO_HOUR_LEN,
+  .minute_hand_length = GLYPH_GABBRO_MINUTE_LEN,
   .hour_hand_width = 6,
   .minute_hand_width = 4,
   .center_radius = 5,
-  .date_frame = {{88, 184}, {84, 16}},
+  .date_frame = {{88, GLYPH_GABBRO_DATE_Y}, {84, 16}},
   .date_font_key = FONT_KEY_GOTHIC_14,
 };
 
@@ -20,28 +22,28 @@ const LayoutSpec *layout_get(bool obstructed) {
 }
 #else
 static const LayoutSpec s_layout_normal = {
-  .center = {100, 97},
-  .marker_radius = 69,
+  .center = {GLYPH_EMERY_CENTER_X, GLYPH_EMERY_CENTER_Y},
+  .marker_radius = GLYPH_EMERY_MARKER_RADIUS,
   .marker_box = 23,
-  .hour_hand_length = 42,
-  .minute_hand_length = 61,
+  .hour_hand_length = GLYPH_EMERY_HOUR_LEN,
+  .minute_hand_length = GLYPH_EMERY_MINUTE_LEN,
   .hour_hand_width = 5,
   .minute_hand_width = 3,
   .center_radius = 5,
-  .date_frame = {{66, 184}, {68, 12}},
+  .date_frame = {{66, GLYPH_EMERY_DATE_Y}, {68, 12}},
   .date_font_key = FONT_KEY_GOTHIC_14,
 };
 
 static const LayoutSpec s_layout_obstructed = {
-  .center = {100, 93},
-  .marker_radius = 65,
+  .center = {GLYPH_EMERY_OBS_CENTER_X, GLYPH_EMERY_OBS_CENTER_Y},
+  .marker_radius = GLYPH_EMERY_OBS_MARKER_RADIUS,
   .marker_box = 22,
-  .hour_hand_length = 39,
-  .minute_hand_length = 57,
+  .hour_hand_length = GLYPH_EMERY_OBS_HOUR_LEN,
+  .minute_hand_length = GLYPH_EMERY_OBS_MINUTE_LEN,
   .hour_hand_width = 5,
   .minute_hand_width = 3,
   .center_radius = 5,
-  .date_frame = {{66, 170}, {68, 12}},
+  .date_frame = {{66, GLYPH_EMERY_OBS_DATE_Y}, {68, 12}},
   .date_font_key = FONT_KEY_GOTHIC_14,
 };
 

@@ -87,4 +87,14 @@ if [[ "$READY" -ne 1 ]]; then
   exit 1
 fi
 
-pebble screenshot --phone "127.0.0.1:${PYPKJS_PORT}" --no-open "$OUTPUT_PNG"
+sleep 0.5
+for attempt in $(seq 1 5); do
+  if pebble screenshot --phone "127.0.0.1:${PYPKJS_PORT}" --no-open "$OUTPUT_PNG"; then
+    exit 0
+  fi
+  echo "Screenshot connection failed for $PLATFORM on attempt $attempt" >&2
+  sleep 0.5
+done
+
+echo "Failed to capture screenshot for $PLATFORM" >&2
+exit 1

@@ -1,6 +1,7 @@
 #include "draw.h"
 
 #include "date_format.h"
+#include "round3_config.h"
 
 static GPoint point_from_angle(GPoint center, uint16_t radius, int32_t angle) {
   return GPoint(
@@ -22,6 +23,26 @@ ThemeSpec draw_theme_spec(ThemeMode theme) {
     .foreground = GColorWhite,
     .accent = GColorBlack,
   };
+}
+
+static GColor accent_color(void) {
+#if defined(PBL_COLOR)
+  switch (GLYPH_ACCENT_MODE) {
+    case 1:
+      return GColorBrass;
+    case 2:
+      return GColorWindsorTan;
+    case 3:
+      return GColorDarkCandyAppleRed;
+    case 4:
+      return GColorBulgarianRose;
+    case 0:
+    default:
+      return GColorWhite;
+  }
+#else
+  return GColorWhite;
+#endif
 }
 
 static void draw_marker_ring(GContext *ctx,
@@ -96,18 +117,20 @@ static void draw_hands(GContext *ctx, const LayoutSpec *layout, const struct tm 
       layout->minute_hand_width > 1 ? (uint8_t)(layout->minute_hand_width) : 1;
 
   draw_hand_polygon(ctx, layout->center, hour_angle, layout->hour_hand_length, layout->hour_hand_width,
-                    hour_neck_half_width, 3, theme.foreground);
+                    hour_neck_half_width, 3, accent_color());
   draw_hand_polygon(ctx, layout->center, minute_angle, layout->minute_hand_length,
                     layout->minute_hand_width, minute_neck_half_width, 4,
                     theme.foreground);
 
-  graphics_context_set_fill_color(ctx, theme.foreground);
-  graphics_fill_circle(ctx, layout->center, layout->center_radius - 1);
-  graphics_context_set_stroke_color(ctx, theme.background);
-  graphics_context_set_stroke_width(ctx, 1);
-  graphics_draw_circle(ctx, layout->center, layout->center_radius);
-  graphics_context_set_stroke_color(ctx, theme.foreground);
-  graphics_draw_circle(ctx, layout->center, layout->center_radius + 1);
+  if (GLYPH_HUB_FILL_RADIUS > 0) {
+    graphics_context_set_fill_color(ctx, theme.foreground);
+    graphics_fill_circle(ctx, layout->center, GLYPH_HUB_FILL_RADIUS);
+  }
+  if (GLYPH_HUB_OUTLINE_WIDTH > 0) {
+    graphics_context_set_stroke_color(ctx, theme.background);
+    graphics_context_set_stroke_width(ctx, GLYPH_HUB_OUTLINE_WIDTH);
+    graphics_draw_circle(ctx, layout->center, GLYPH_HUB_FILL_RADIUS + GLYPH_HUB_OUTLINE_WIDTH);
+  }
 }
 
 static void draw_date(GContext *ctx,
@@ -143,5 +166,11 @@ void draw_face(Layer *layer,
 
   draw_marker_ring(ctx, layout, marker_pack, bitmaps, theme);
   draw_hands(ctx, layout, tick_time, theme);
-  draw_date(ctx, layer, layout, tick_time, theme, settings->show_date && !obstructed);
+  bool show_date = settings->show_date && !obstructed;
+  if (GLYPH_FORCE_SHOW_DATE == 0) {
+    show_date = false;
+  } else if (GLYPH_FORCE_SHOW_DATE == 1) {
+    show_date = !obstructed;
+  }
+  draw_date(ctx, layer, layout, tick_time, theme, show_date);
 }
