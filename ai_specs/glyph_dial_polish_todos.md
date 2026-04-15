@@ -6,42 +6,43 @@ This document captures the current visual and design issues discovered during th
 
 The goal is to use this as the next-pass polish checklist before contest submission screenshots and store preparation.
 
-## High-Priority Visual Fixes
+## Locked V1 Decisions
 
-### 1. Increase hand-to-glyph clearance
+- Hebrew-first.
+- Noto Sans Hebrew Bold.
+- Black theme primary.
+- No seconds.
+- No date.
+- Monochrome default.
+- Tapered baton hands.
+- Small outlined hub with fill radius 2 and outline width 1.
+- Emery locked at center `(99,100)`, hour `46`, minute `68`.
+- Gabbro locked at center `(131,128)`, hour `50`, minute `74`.
+- Brass is not in Settings for v1.
 
-Problem:
-- the hour and minute hands get too close to the glyph ring
-- this weakens readability and makes the composition feel cramped
+## Resolved Round 4 Items
 
-Potential fixes:
-- shorten the minute hand slightly
-- shorten the hour hand slightly
-- move the glyph ring outward where possible
-- reduce marker size on crowded positions
-- use more tapered or narrower hand geometry
+- Hand reach is locked after the longer-hand and Emery micro-rounds.
+- The center hub decision is locked to the smaller outlined hub.
+- Date crowding is resolved by removing date from v1.
+- Monochrome beat brass as the v1 identity.
+
+## Remaining Visual Fixes
+
+### 1. Verify final hand-to-glyph clearance
+
+Status:
+- final geometry is locked, but final canonical screenshots should still be checked before submission
+
+Check:
+- Emery `E11_hub2`
+- Gabbro `G9_hub2`
 
 Success criteria:
-- hands no longer feel like they crash into the glyphs
+- hands create near-kiss tension without cutting through glyph pixels
 - the watchface remains balanced on both Emery and Gabbro
 
-### 2. Add more date clearance
-
-Problem:
-- the date almost overlaps the lower glyphs, especially on Emery
-
-Potential fixes:
-- move the date lower
-- move the dial center slightly higher
-- reduce date font size
-- reduce lower marker radius slightly
-- hide date in tighter layouts or when space is compromised
-
-Success criteria:
-- the date feels quiet and clearly separated from the markers
-- lower dial positions remain visually clean
-
-### 3. Fix Hebrew 11 and 12 ordering in final screenshots
+### 2. Fix Hebrew 11 and 12 ordering in final screenshots
 
 Problem:
 - in screenshots, `11` and `12` still appear reversed
@@ -60,7 +61,7 @@ Success criteria:
 
 ## Typography Review
 
-### 4. Reconsider the Hebrew font choice
+### 3. Reconsider the Hebrew font choice
 
 Problem:
 - the current Hebrew font may not be the strongest visual choice
@@ -86,7 +87,7 @@ Evaluation criteria:
 
 ## Hands Design Review
 
-### 5. Improve hand styling
+### 4. Improve hand styling
 
 Problem:
 - the current hands work technically, but they may be too plain
@@ -104,28 +105,17 @@ Success criteria:
 - hands support the glyphs without competing with them
 - readability remains strong
 
-### 6. Decide whether the center point belongs in the design
+### 5. Center point decision
 
-Question:
-- do we want the middle point with the hands in this design?
+Status:
+- locked for v1 as a small outlined hub, fill radius 2 and outline width 1.
 
-Considerations:
-- a center cap can make the analog hands feel more complete and realistic
-- it can also add visual clutter in a design that wants extreme restraint
-- it may be worth testing:
-  - no center cap
-  - small filled cap
-  - ring cap
-  - subtle cap only on one theme
-
-Decision criteria:
-- does the center feel finished without it?
-- does removing it make the dial calmer?
-- does it help or hurt the typographic focus?
+Future work:
+- do not reopen before v1 unless final screenshots expose a concrete issue.
 
 ## Theme Support
 
-### 7. Finish white-background support
+### 6. Finish white-background support
 
 Problem:
 - white background support is desired, but needs visual verification and likely tuning
@@ -133,7 +123,7 @@ Problem:
 Needed work:
 - confirm the paper theme renders correctly with all markers
 - verify image inversion quality for glyphs
-- ensure hands, date, and any center cap look intentional on white
+- ensure hands and center hub look intentional on white
 - capture screenshots for the paper variant on both devices
 
 Success criteria:
@@ -142,20 +132,16 @@ Success criteria:
 
 ## Suggested Next Pass Order
 
-1. Fix Hebrew `11` and `12` ordering definitively.
-2. Improve date and hand clearance on Emery.
-3. Tune hand styling.
-4. Decide on center cap behavior.
-5. Compare Hebrew font alternatives.
-6. Finalize and verify white-background support.
-7. Re-capture screenshots on both devices.
+1. Verify final canonical screenshots on both devices.
+2. Fix Hebrew `11` and `12` ordering definitively if screenshots regress.
+3. Compare Hebrew font alternatives only if Noto Sans Hebrew Bold fails final review.
+4. Finalize and verify white-background support.
 
 ## Submission Readiness Gate
 
 Before final contest screenshots, verify:
 - Hebrew markers are ordered correctly
-- hands do not crowd markers
-- date does not crowd markers
+- hands create intentional near-kiss tension without cutting through markers
 - chosen Hebrew font is signed off
 - chosen hand style is signed off
 - center cap decision is signed off

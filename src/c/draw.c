@@ -1,7 +1,6 @@
 #include "draw.h"
 
-#include "date_format.h"
-#include "round3_config.h"
+#include "glyph_design_config.h"
 
 static GPoint point_from_angle(GPoint center, uint16_t radius, int32_t angle) {
   return GPoint(
@@ -127,29 +126,10 @@ static void draw_hands(GContext *ctx, const LayoutSpec *layout, const struct tm 
     graphics_fill_circle(ctx, layout->center, GLYPH_HUB_FILL_RADIUS);
   }
   if (GLYPH_HUB_OUTLINE_WIDTH > 0) {
-    graphics_context_set_stroke_color(ctx, theme.background);
+    graphics_context_set_stroke_color(ctx, accent_color());
     graphics_context_set_stroke_width(ctx, GLYPH_HUB_OUTLINE_WIDTH);
     graphics_draw_circle(ctx, layout->center, GLYPH_HUB_FILL_RADIUS + GLYPH_HUB_OUTLINE_WIDTH);
   }
-}
-
-static void draw_date(GContext *ctx,
-                      Layer *layer,
-                      const LayoutSpec *layout,
-                      const struct tm *tick_time,
-                      ThemeSpec theme,
-                      bool show_date) {
-  if (!show_date) {
-    return;
-  }
-
-  char buffer[16];
-  date_format_day_month(tick_time, buffer, sizeof(buffer));
-
-  graphics_context_set_text_color(ctx, theme.foreground);
-  graphics_draw_text(ctx, buffer, fonts_get_system_font(layout->date_font_key), layout->date_frame,
-                     GTextOverflowModeTrailingEllipsis, GTextAlignmentCenter, NULL);
-  (void)layer;
 }
 
 void draw_face(Layer *layer,
@@ -166,11 +146,4 @@ void draw_face(Layer *layer,
 
   draw_marker_ring(ctx, layout, marker_pack, bitmaps, theme);
   draw_hands(ctx, layout, tick_time, theme);
-  bool show_date = settings->show_date && !obstructed;
-  if (GLYPH_FORCE_SHOW_DATE == 0) {
-    show_date = false;
-  } else if (GLYPH_FORCE_SHOW_DATE == 1) {
-    show_date = !obstructed;
-  }
-  draw_date(ctx, layer, layout, tick_time, theme, show_date);
 }

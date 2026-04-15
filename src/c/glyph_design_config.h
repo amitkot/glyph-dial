@@ -1,15 +1,13 @@
 #pragma once
 
-#include "round3_matrix_overrides.h"
-
-#define GLYPH_FORCE_DATE_DEFAULT (-1)
+#include "glyph_layout_overrides.h"
 
 #ifndef GLYPH_EMERY_CENTER_X
 #define GLYPH_EMERY_CENTER_X 99
 #endif
 
 #ifndef GLYPH_EMERY_CENTER_Y
-#define GLYPH_EMERY_CENTER_Y 103
+#define GLYPH_EMERY_CENTER_Y 100
 #endif
 
 #ifndef GLYPH_EMERY_MARKER_RADIUS
@@ -17,15 +15,11 @@
 #endif
 
 #ifndef GLYPH_EMERY_HOUR_LEN
-#define GLYPH_EMERY_HOUR_LEN 32
+#define GLYPH_EMERY_HOUR_LEN 46
 #endif
 
 #ifndef GLYPH_EMERY_MINUTE_LEN
-#define GLYPH_EMERY_MINUTE_LEN 44
-#endif
-
-#ifndef GLYPH_EMERY_DATE_Y
-#define GLYPH_EMERY_DATE_Y 184
+#define GLYPH_EMERY_MINUTE_LEN 68
 #endif
 
 #ifndef GLYPH_EMERY_OBS_CENTER_X
@@ -41,19 +35,15 @@
 #endif
 
 #ifndef GLYPH_EMERY_OBS_HOUR_LEN
-#define GLYPH_EMERY_OBS_HOUR_LEN 39
+#define GLYPH_EMERY_OBS_HOUR_LEN GLYPH_EMERY_HOUR_LEN
 #endif
 
 #ifndef GLYPH_EMERY_OBS_MINUTE_LEN
-#define GLYPH_EMERY_OBS_MINUTE_LEN 57
-#endif
-
-#ifndef GLYPH_EMERY_OBS_DATE_Y
-#define GLYPH_EMERY_OBS_DATE_Y 170
+#define GLYPH_EMERY_OBS_MINUTE_LEN GLYPH_EMERY_MINUTE_LEN
 #endif
 
 #ifndef GLYPH_GABBRO_CENTER_X
-#define GLYPH_GABBRO_CENTER_X 130
+#define GLYPH_GABBRO_CENTER_X 131
 #endif
 
 #ifndef GLYPH_GABBRO_CENTER_Y
@@ -65,23 +55,15 @@
 #endif
 
 #ifndef GLYPH_GABBRO_HOUR_LEN
-#define GLYPH_GABBRO_HOUR_LEN 42
+#define GLYPH_GABBRO_HOUR_LEN 50
 #endif
 
 #ifndef GLYPH_GABBRO_MINUTE_LEN
-#define GLYPH_GABBRO_MINUTE_LEN 65
-#endif
-
-#ifndef GLYPH_GABBRO_DATE_Y
-#define GLYPH_GABBRO_DATE_Y 189
-#endif
-
-#ifndef GLYPH_FORCE_SHOW_DATE
-#define GLYPH_FORCE_SHOW_DATE GLYPH_FORCE_DATE_DEFAULT
+#define GLYPH_GABBRO_MINUTE_LEN 74
 #endif
 
 #ifndef GLYPH_HUB_FILL_RADIUS
-#define GLYPH_HUB_FILL_RADIUS 3
+#define GLYPH_HUB_FILL_RADIUS 2
 #endif
 
 #ifndef GLYPH_HUB_OUTLINE_WIDTH
@@ -90,4 +72,12 @@
 
 #ifndef GLYPH_ACCENT_MODE
 #define GLYPH_ACCENT_MODE 0
+#endif
+
+#ifndef GLYPH_FORCE_HOUR
+#define GLYPH_FORCE_HOUR (-1)
+#endif
+
+#ifndef GLYPH_FORCE_MINUTE
+#define GLYPH_FORCE_MINUTE (-1)
 #endif

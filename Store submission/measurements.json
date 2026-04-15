@@ -1,0 +1,188 @@
+[
+  {
+    "content_bbox": [
+      23,
+      26,
+      171,
+      174
+    ],
+    "detected_hub_center": [
+      98.78,
+      98.99
+    ],
+    "expected_hub_center": [
+      99,
+      100
+    ],
+    "hour_tip": {
+      "radius": 33.84,
+      "x": 71,
+      "y": 81
+    },
+    "hour_tip_to_nearest_glyph_px": 34.01,
+    "image": "/Users/amit/src/amitkot/pebble-watchface/ai_docs/screenshots/round4/emery.png",
+    "minute_tip": {
+      "radius": 56.94,
+      "x": 148,
+      "y": 71
+    },
+    "minute_tip_to_nearest_glyph_px": 2.24,
+    "platform": "emery",
+    "variant": "emery"
+  },
+  {
+    "content_bbox": [
+      23,
+      26,
+      171,
+      174
+    ],
+    "detected_hub_center": [
+      98.64,
+      100.0
+    ],
+    "expected_hub_center": [
+      99,
+      100
+    ],
+    "hour_tip": {
+      "radius": 34.44,
+      "x": 68,
+      "y": 115
+    },
+    "hour_tip_to_nearest_glyph_px": 30.23,
+    "image": "/Users/amit/src/amitkot/pebble-watchface/ai_docs/screenshots/round4/emery.png",
+    "minute_tip": {
+      "radius": 55.97,
+      "x": 136,
+      "y": 58
+    },
+    "minute_tip_to_nearest_glyph_px": 11.0,
+    "platform": "emery",
+    "variant": "emery"
+  },
+  {
+    "content_bbox": [
+      23,
+      26,
+      171,
+      174
+    ],
+    "detected_hub_center": [
+      99.55,
+      99.34
+    ],
+    "expected_hub_center": [
+      99,
+      100
+    ],
+    "hour_tip": {
+      "radius": 38.12,
+      "x": 137,
+      "y": 97
+    },
+    "hour_tip_to_nearest_glyph_px": 27.89,
+    "image": "/Users/amit/src/amitkot/pebble-watchface/ai_docs/screenshots/round4/emery.png",
+    "minute_tip": {
+      "radius": 52.84,
+      "x": 53,
+      "y": 74
+    },
+    "minute_tip_to_nearest_glyph_px": 14.76,
+    "platform": "emery",
+    "variant": "emery"
+  },
+  {
+    "content_bbox": [
+      31,
+      29,
+      226,
+      227
+    ],
+    "detected_hub_center": [
+      130.89,
+      127.1
+    ],
+    "expected_hub_center": [
+      131,
+      128
+    ],
+    "hour_tip": {
+      "radius": 38.83,
+      "x": 99,
+      "y": 106
+    },
+    "hour_tip_to_nearest_glyph_px": 53.23,
+    "image": "/Users/amit/src/amitkot/pebble-watchface/ai_docs/screenshots/round4/gabbro.png",
+    "minute_tip": {
+      "radius": 65.86,
+      "x": 188,
+      "y": 95
+    },
+    "minute_tip_to_nearest_glyph_px": 18.79,
+    "platform": "gabbro",
+    "variant": "gabbro"
+  },
+  {
+    "content_bbox": [
+      31,
+      29,
+      226,
+      227
+    ],
+    "detected_hub_center": [
+      130.55,
+      127.91
+    ],
+    "expected_hub_center": [
+      131,
+      128
+    ],
+    "hour_tip": {
+      "radius": 38.91,
+      "x": 96,
+      "y": 145
+    },
+    "hour_tip_to_nearest_glyph_px": 49.93,
+    "image": "/Users/amit/src/amitkot/pebble-watchface/ai_docs/screenshots/round4/gabbro.png",
+    "minute_tip": {
+      "radius": 61.62,
+      "x": 172,
+      "y": 82
+    },
+    "minute_tip_to_nearest_glyph_px": 28.0,
+    "platform": "gabbro",
+    "variant": "gabbro"
+  },
+  {
+    "content_bbox": [
+      31,
+      29,
+      226,
+      227
+    ],
+    "detected_hub_center": [
+      131.54,
+      127.33
+    ],
+    "expected_hub_center": [
+      131,
+      128
+    ],
+    "hour_tip": {
+      "radius": 42.11,
+      "x": 173,
+      "y": 125
+    },
+    "hour_tip_to_nearest_glyph_px": 47.52,
+    "image": "/Users/amit/src/amitkot/pebble-watchface/ai_docs/screenshots/round4/gabbro.png",
+    "minute_tip": {
+      "radius": 59.54,
+      "x": 79,
+      "y": 99
+    },
+    "minute_tip_to_nearest_glyph_px": 32.25,
+    "platform": "gabbro",
+    "variant": "gabbro"
+  }
+]

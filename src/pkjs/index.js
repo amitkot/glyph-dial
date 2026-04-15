@@ -28,8 +28,7 @@ var HTML = String.raw`
         margin: 16px 0 8px;
         font-weight: 600;
       }
-      select,
-      input[type="checkbox"] {
+      select {
         font-size: 16px;
       }
       select {
@@ -39,11 +38,6 @@ var HTML = String.raw`
         border: 1px solid #444;
         background: #1b1b1b;
         color: #fff;
-      }
-      .row {
-        display: flex;
-        align-items: center;
-        gap: 10px;
       }
       button {
         width: 100%;
@@ -61,7 +55,7 @@ var HTML = String.raw`
   <body>
     <main>
       <h1>Glyph Dial</h1>
-      <p>Quiet analog typography for Pebble Time 2 and Round 2.</p>
+      <p>Quiet monochrome analog typography for Pebble Time 2 and Round 2.</p>
 
       <label for="theme">Theme</label>
       <select id="theme">
@@ -69,36 +63,25 @@ var HTML = String.raw`
         <option value="1">Paper</option>
       </select>
 
-      <label class="row">
-        <input id="showDate" type="checkbox">
-        <span>Show date</span>
-      </label>
-
       <button id="save">Save</button>
     </main>
 
     <script>
       const key = "glyph-dial-settings";
       const theme = document.getElementById("theme");
-      const showDate = document.getElementById("showDate");
 
       try {
         const saved = JSON.parse(localStorage.getItem(key) || "{}");
         if (saved.theme !== undefined) theme.value = String(saved.theme);
-        if (saved.showDate !== undefined) showDate.checked = !!saved.showDate;
-        else showDate.checked = true;
       } catch (err) {
-        showDate.checked = true;
       }
 
       document.getElementById("save").addEventListener("click", function () {
         const payload = {
-          THEME: Number(theme.value),
-          SHOW_DATE: showDate.checked ? 1 : 0
+          THEME: Number(theme.value)
         };
         localStorage.setItem(key, JSON.stringify({
-          theme: payload.THEME,
-          showDate: !!payload.SHOW_DATE
+          theme: payload.THEME
         }));
         document.location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(payload));
       });

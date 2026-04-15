@@ -11,6 +11,21 @@ The objective is to make the current concept feel **intentional, premium, and sc
 
 ---
 
+## Round Status
+
+This round has been superseded by the Round 4 lock.
+
+Locked v1 decisions:
+- no date
+- no seconds
+- monochrome default
+- Noto Sans Hebrew Bold
+- tapered baton hands
+- small outlined hub, fill radius 2, outline width 1
+- Emery `E11_hub2`: center `(99,100)`, hour `46`, minute `68`
+- Gabbro `G9_hub2`: center `(131,128)`, hour `50`, minute `74`
+- brass remains a future optional variant, not a v1 setting
+
 ## Round Goal
 
 Ship a visibly improved version of the current Hebrew watchface by focusing on:
@@ -78,48 +93,32 @@ Success criteria:
 
 ## P1 — Layout and Spacing Polish
 
-### 3. Increase hand-to-marker clearance
+### 3. Finalize hand-to-marker tension
 
-Problem:
-- the current hands get too close to the glyph ring, especially visually rather than purely geometrically.
+Status:
+- resolved by Round 4 longer-hand matrices and Emery micro-round.
 
-Tasks:
-- shorten the minute hand by a small controlled amount
-- optionally shorten the hour hand slightly
-- try moving the marker ring outward by 2 to 4 px where possible
-- try slightly narrower or tapered hands
-- compare all variants in screenshots, not just by code inspection
-
-Recommended experiments:
-- current baseline
-- minute hand -4 px
-- minute hand -6 px
-- hour hand -2 px and minute hand -4 px
-- marker ring +2 px
+Locked variants:
+- Emery `E11_hub2`
+- Gabbro `G9_hub2`
 
 Success criteria:
-- the hands no longer feel like they crash into the glyphs
-- the face still feels balanced
+- the hands feel intentional, watch-like, and close to the glyph ring without collision
 
 ### 4. Clean up the lower zone
 
-Problem:
-- the area around `ז`, `ו`, `ה`, and the date is the most crowded part of the current design.
+Status:
+- date removed from v1, so the lower zone is intentionally simplified.
 
 Tasks:
-- move the date lower
-- test a slightly smaller date font
-- test shifting the visual dial center slightly upward
 - test tiny inward/outward nudges for the 5, 6, 7 positions
 - verify the 6 marker is visually part of the ring and not floating too low
 
 Recommended visual rule:
 - the bottom half should feel calmer than it does now
-- the date should read as secondary, never as another marker competing in the ring
 
 Success criteria:
 - the lower half looks intentionally spaced
-- the date sits in its own quiet zone
 
 ### 5. Add per-marker optical offsets
 
@@ -175,20 +174,12 @@ Success criteria:
 
 ### 7. Revisit the center hub
 
-Problem:
-- the current center point is serviceable but blunt
+Status:
+- resolved for v1.
 
-Tasks:
-- test 4 hub variants:
-  - none
-  - tiny filled dot
-  - small filled circle with thin contrasting outline
-  - thin ring cap
-- compare against the hand variants
-- choose the one that feels most calm and premium
-
-Recommended expectation:
-- a very small filled center cap or a subtle ring cap will likely work best
+Locked hub:
+- fill radius 2
+- outline width 1
 
 Success criteria:
 - the center feels finished, not heavy
@@ -255,13 +246,11 @@ Problem:
 
 Tasks:
 - keep glyphs neutral
-- keep date neutral
 - color only the hour hand in experiments
 - optionally color a very small center-cap ring to match the hour hand
 - produce three comparison screenshots:
   - monochrome
-  - muted gold hour hand
-  - deep muted red hour hand
+  - brass hour hand
 
 Decision rule:
 - do not expose accent as a user setting in this round
@@ -293,7 +282,7 @@ Problem:
 
 Tasks:
 - confirm marker contrast and edge quality on white
-- confirm the date and hub still feel intentional
+- confirm the hub still feels intentional
 - verify hand contrast and legibility
 - confirm no ugly asset inversion artifacts
 - capture both devices
@@ -317,7 +306,6 @@ Tasks:
 - standardize the shown time for comparisons
 - generate comparison sheets for:
   - hand variants
-  - date on/off
   - marker ring spacing
   - font candidates
   - color variants
@@ -335,10 +323,10 @@ Success criteria:
 Recommended hero target for this round:
 - black theme
 - no seconds
-- possibly no date
+- no date
 - strongest hand set
 - strongest Hebrew marker rendering
-- one accent choice at most
+- monochrome
 
 Tasks:
 - capture at least 3 hero candidates
@@ -385,10 +373,9 @@ Before calling this round done, verify:
 - Hebrew markers render correctly
 - the top arc feels balanced
 - the bottom zone feels calm
-- the date no longer crowds the markers
 - the chosen hands look intentional
 - the chosen center hub looks intentional
-- the chosen color treatment is signed off
+- monochrome treatment is signed off
 - the face looks strong in a no-date hero screenshot
 
 ---

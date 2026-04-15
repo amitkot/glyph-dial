@@ -17,7 +17,6 @@ typedef enum {
 typedef struct {
   ScriptPack pack;
   ThemeMode theme;
-  bool show_date;
 } AppSettings;
 
 void settings_init_defaults(AppSettings *settings);

@@ -1,6 +1,7 @@
 #include <pebble.h>
 
 #include "draw.h"
+#include "glyph_design_config.h"
 #include "layout.h"
 #include "markers.h"
 #include "settings.h"
@@ -45,6 +46,13 @@ static void update_time(void) {
   struct tm *local = localtime(&now);
   if (local) {
     s_app.current_time = *local;
+    if (GLYPH_FORCE_HOUR >= 0) {
+      s_app.current_time.tm_hour = GLYPH_FORCE_HOUR;
+    }
+    if (GLYPH_FORCE_MINUTE >= 0) {
+      s_app.current_time.tm_min = GLYPH_FORCE_MINUTE;
+    }
+    s_app.current_time.tm_sec = 0;
   }
 }
 
@@ -69,15 +77,6 @@ static void inbox_received_handler(DictionaryIterator *iter, void *context) {
     int32_t next_theme = theme->value->int32;
     if (next_theme >= 0 && next_theme < THEME_COUNT && next_theme != s_app.settings.theme) {
       s_app.settings.theme = (ThemeMode)next_theme;
-      should_save = true;
-    }
-  }
-
-  Tuple *show_date = dict_find(iter, MESSAGE_KEY_SHOW_DATE);
-  if (show_date) {
-    bool next_show_date = show_date->value->int32 == 1;
-    if (next_show_date != s_app.settings.show_date) {
-      s_app.settings.show_date = next_show_date;
       should_save = true;
     }
   }
@@ -109,6 +108,13 @@ static void unobstructed_change_handler(AnimationProgress progress, void *contex
 static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
   (void)units_changed;
   s_app.current_time = *tick_time;
+  if (GLYPH_FORCE_HOUR >= 0) {
+    s_app.current_time.tm_hour = GLYPH_FORCE_HOUR;
+  }
+  if (GLYPH_FORCE_MINUTE >= 0) {
+    s_app.current_time.tm_min = GLYPH_FORCE_MINUTE;
+  }
+  s_app.current_time.tm_sec = 0;
   layer_mark_dirty(s_app.canvas_layer);
 }
 

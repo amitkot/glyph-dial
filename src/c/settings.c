@@ -7,7 +7,6 @@ enum {
 void settings_init_defaults(AppSettings *settings) {
   settings->pack = SCRIPT_PACK_HEBREW;
   settings->theme = THEME_NIGHT;
-  settings->show_date = true;
 }
 
 void settings_load(AppSettings *settings) {

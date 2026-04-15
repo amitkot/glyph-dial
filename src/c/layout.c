@@ -1,6 +1,6 @@
 #include "layout.h"
 
-#include "round3_config.h"
+#include "glyph_design_config.h"
 
 #ifdef PBL_ROUND
 static const LayoutSpec s_layout_normal = {
@@ -12,8 +12,6 @@ static const LayoutSpec s_layout_normal = {
   .hour_hand_width = 6,
   .minute_hand_width = 4,
   .center_radius = 5,
-  .date_frame = {{88, GLYPH_GABBRO_DATE_Y}, {84, 16}},
-  .date_font_key = FONT_KEY_GOTHIC_14,
 };
 
 const LayoutSpec *layout_get(bool obstructed) {
@@ -30,8 +28,6 @@ static const LayoutSpec s_layout_normal = {
   .hour_hand_width = 5,
   .minute_hand_width = 3,
   .center_radius = 5,
-  .date_frame = {{66, GLYPH_EMERY_DATE_Y}, {68, 12}},
-  .date_font_key = FONT_KEY_GOTHIC_14,
 };
 
 static const LayoutSpec s_layout_obstructed = {
@@ -43,8 +39,6 @@ static const LayoutSpec s_layout_obstructed = {
   .hour_hand_width = 5,
   .minute_hand_width = 3,
   .center_radius = 5,
-  .date_frame = {{66, GLYPH_EMERY_OBS_DATE_Y}, {68, 12}},
-  .date_font_key = FONT_KEY_GOTHIC_14,
 };
 
 const LayoutSpec *layout_get(bool obstructed) {

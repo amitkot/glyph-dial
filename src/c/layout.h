@@ -11,8 +11,6 @@ typedef struct {
   uint8_t hour_hand_width;
   uint8_t minute_hand_width;
   uint8_t center_radius;
-  GRect date_frame;
-  const char *date_font_key;
 } LayoutSpec;
 
 const LayoutSpec *layout_get(bool obstructed);

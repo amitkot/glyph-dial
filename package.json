@@ -19,8 +19,7 @@
     },
     "messageKeys": [
       "PACK",
-      "THEME",
-      "SHOW_DATE"
+      "THEME"
     ],
     "resources": {
       "media": [

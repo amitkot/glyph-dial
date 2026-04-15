@@ -1,0 +1,146 @@
+[
+  {
+    "accent_mode": 0,
+    "capture_time": "10:10",
+    "center": [
+      99,
+      100
+    ],
+    "forced_show_date": 0,
+    "hour_length": 46,
+    "hub_fill_radius": 2,
+    "hub_outline_width": 1,
+    "minute_length": 66,
+    "output": "emery_E10_hub21",
+    "platform": "emery",
+    "variant": "emery_E10_hub2"
+  },
+  {
+    "accent_mode": 0,
+    "capture_time": "10:10",
+    "center": [
+      99,
+      100
+    ],
+    "forced_show_date": 0,
+    "hour_length": 46,
+    "hub_fill_radius": 2,
+    "hub_outline_width": 1,
+    "minute_length": 68,
+    "output": "emery_E11_hub21",
+    "platform": "emery",
+    "variant": "emery_E11_hub2"
+  },
+  {
+    "accent_mode": 0,
+    "capture_time": "10:10",
+    "center": [
+      99,
+      100
+    ],
+    "forced_show_date": 0,
+    "hour_length": 48,
+    "hub_fill_radius": 2,
+    "hub_outline_width": 1,
+    "minute_length": 68,
+    "output": "emery_E12_hub21",
+    "platform": "emery",
+    "variant": "emery_E12_hub2"
+  },
+  {
+    "accent_mode": 0,
+    "capture_time": "10:10",
+    "center": [
+      99,
+      100
+    ],
+    "forced_show_date": 0,
+    "hour_length": 46,
+    "hub_fill_radius": 3,
+    "hub_outline_width": 1,
+    "minute_length": 68,
+    "output": "emery_E11_C1_mono1",
+    "platform": "emery",
+    "variant": "emery_E11_C1_mono"
+  },
+  {
+    "accent_mode": 1,
+    "capture_time": "10:10",
+    "center": [
+      99,
+      100
+    ],
+    "forced_show_date": 0,
+    "hour_length": 46,
+    "hub_fill_radius": 3,
+    "hub_outline_width": 1,
+    "minute_length": 68,
+    "output": "emery_E11_C2_brass1",
+    "platform": "emery",
+    "variant": "emery_E11_C2_brass"
+  },
+  {
+    "accent_mode": 2,
+    "capture_time": "10:10",
+    "center": [
+      99,
+      100
+    ],
+    "forced_show_date": 0,
+    "hour_length": 46,
+    "hub_fill_radius": 3,
+    "hub_outline_width": 1,
+    "minute_length": 68,
+    "output": "emery_E11_C3_windsor1",
+    "platform": "emery",
+    "variant": "emery_E11_C3_windsor"
+  },
+  {
+    "accent_mode": 0,
+    "capture_time": "10:10",
+    "center": [
+      131,
+      128
+    ],
+    "forced_show_date": 0,
+    "hour_length": 50,
+    "hub_fill_radius": 3,
+    "hub_outline_width": 1,
+    "minute_length": 74,
+    "output": "gabbro_G9_C1_mono1",
+    "platform": "gabbro",
+    "variant": "gabbro_G9_C1_mono"
+  },
+  {
+    "accent_mode": 1,
+    "capture_time": "10:10",
+    "center": [
+      131,
+      128
+    ],
+    "forced_show_date": 0,
+    "hour_length": 50,
+    "hub_fill_radius": 3,
+    "hub_outline_width": 1,
+    "minute_length": 74,
+    "output": "gabbro_G9_C2_brass1",
+    "platform": "gabbro",
+    "variant": "gabbro_G9_C2_brass"
+  },
+  {
+    "accent_mode": 2,
+    "capture_time": "10:10",
+    "center": [
+      131,
+      128
+    ],
+    "forced_show_date": 0,
+    "hour_length": 50,
+    "hub_fill_radius": 3,
+    "hub_outline_width": 1,
+    "minute_length": 74,
+    "output": "gabbro_G9_C3_windsor1",
+    "platform": "gabbro",
+    "variant": "gabbro_G9_C3_windsor"
+  }
+]

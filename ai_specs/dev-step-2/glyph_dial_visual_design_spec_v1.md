@@ -61,7 +61,6 @@ The face is made of:
 2. hour hand
 3. minute hand
 4. center hub
-5. optional date
 
 ### Visual hierarchy
 
@@ -70,9 +69,7 @@ The intended hierarchy is:
 1. **glyph ring**
 2. **hands**
 3. **center hub**
-4. **date**
 
-The date must always stay secondary.
 The hands must support the glyphs, not dominate them.
 
 ---
@@ -84,9 +81,8 @@ The hands must support the glyphs, not dominate them.
 Primary visual language:
 - black background
 - white glyphs
-- white date
-- white or neutral minute hand
-- white or accent hour hand depending on chosen direction
+- white minute hand
+- white hour hand
 
 This is the default and hero presentation.
 
@@ -95,9 +91,8 @@ This is the default and hero presentation.
 Secondary visual language:
 - white background
 - black glyphs
-- black date
-- black or neutral minute hand
-- black or accent hour hand depending on chosen direction
+- black minute hand
+- black hour hand
 
 This theme is optional and only ships if it looks intentional.
 
@@ -106,6 +101,9 @@ This theme is optional and only ships if it looks intentional.
 ## Accent Color Strategy
 
 The face is fundamentally monochrome.
+
+For v1, the shipped identity is monochrome. Brass remains a possible future
+variant, but it is not exposed in Settings and is not the default identity.
 
 If color is used, it is used only as a **single restrained accent**.
 
@@ -119,23 +117,14 @@ The accent may be used on:
 
 Do not use accent color on:
 - glyphs
-- date
 - background
 - multiple competing elements
 
-### Candidate accents
+### Candidate accents for later
 
-1. muted gold
-2. deep muted red
+- muted gold / brass only
 
-### Accent decision rule
-
-A color accent should only survive if it makes the face feel:
-- more premium
-- more intentional
-- more memorable
-
-If it makes the face feel loud, gimmicky, or less timeless, remove it.
+Red is out for v1.
 
 ---
 
@@ -147,14 +136,14 @@ Nominal screen size:
 - 260 × 260
 
 Working center:
-- (130, 130)
+- (131, 128)
 
-Current target geometry:
-- marker ring radius: about 90
-- hour hand length: about 56
-- minute hand length: about 82
-- center clear radius: about 18
-- date baseline: about y 188
+Locked v1 geometry:
+- marker ring radius: 93
+- hour hand length: 50
+- minute hand length: 74
+- center hub fill radius: 2
+- center hub outline width: 1
 
 ### Marker size guidance
 - primary target around 28 px
@@ -166,14 +155,14 @@ Nominal screen size:
 - 200 × 228
 
 Working visual center:
-- (100, 108)
+- (99, 100)
 
-Current target geometry:
-- marker ring radius: about 68
-- hour hand length: about 44
-- minute hand length: about 64
-- center clear radius: about 16
-- date baseline: about y 166
+Locked v1 geometry:
+- marker ring radius: 69
+- hour hand length: 46
+- minute hand length: 68
+- center hub fill radius: 2
+- center hub outline width: 1
 
 ### Marker size guidance
 - primary target around 22 px
@@ -269,29 +258,10 @@ A heavy hub is not acceptable.
 
 ## Date Design
 
-### Role
+The v1 design does not include a date.
 
-The date is optional support information, not a headline.
-
-### Rules
-
-- it must sit below the hand system
-- it must not visually merge with the 5, 6, 7 markers
-- it should stay quiet
-- the hero screenshot may omit it
-
-### Formats
-
-Candidate formats:
-- `14 Apr`
-- numeric only
-- pack-specific digits with minimal complexity
-
-### Current design direction
-
-- black theme first
-- no seconds
-- date likely enabled in product, but not necessarily shown in the hero shot
+Round 4 confirmed that the watchface is stronger as a pure typographic analog
+dial. Date rendering and the date Settings toggle are out of scope for v1.
 
 ---
 
@@ -339,9 +309,8 @@ This arc must feel elegant and stable.
 - 5
 - 6
 - 7
-- date
 
-This area currently has the highest risk of crowding and must become calmer.
+This area should stay calm now that v1 omits the date.
 
 ### Hands vs ring
 The hands must stop just short of tension.
@@ -358,8 +327,8 @@ The current hero-image target should be:
 - no seconds
 - strongest hand set
 - strongest hub option
-- date off unless it clearly improves the screenshot
-- one accent treatment at most
+- no date
+- monochrome
 
 This is the benchmark for whether the face is visually “there.”
 
