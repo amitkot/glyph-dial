@@ -1,5 +1,6 @@
 build/
 *.pbw
 .lock-waf_*
-ai_docs/*_test.png
-ai_docs/*_sheet.png
+.DS_Store
+Store submission/
+ai_docs/
